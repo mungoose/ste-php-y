@@ -2,17 +2,19 @@
 
 ## Decisions
 - Repo: `ste-php-y`, public on GitHub (account `mungoose`). CLAUDE.md and PROGRESS.md are committed.
-- PHP runs only inside Sail (Docker via OrbStack). No PHP or Composer on the Mac.
+- App and MySQL run in Sail (Docker via OrbStack). PHP 8.5 + Composer also on the Mac (Homebrew), added after Sail-only proved awkward for a breadth-first project. artisan/tests still via `sail` (DB_HOST=mysql).
 - Versions checked 2026-11-09: Laravel 13.40 (needs PHP ^8.3), Lighthouse 6.74 (supports Laravel 9–13).
 
 ## Current milestone
-**0. Setup**: new Laravel app with Sail and MySQL, git repo on GitHub, default tests pass.
+**1. Data model**: migrations, models, relationships, the status enum, factories, one seeder. Done when `sail artisan migrate:fresh --seed` gives realistic data and is queryable in Tinker.
 
 ## Done
 - Step 0.1: Laravel 13 app via the Sail installer, PHP 8.5 runtime, MySQL 8.4, PHPUnit. Generated into a nested folder and moved up; installer's CLAUDE.md/AGENTS.md dropped. Default tests pass, migrations ran on MySQL.
+- Step 0.2: git repo, pushed to https://github.com/mungoose/ste-php-y (public, branch `master`). First commit subject isn't Conventional Commits; left as is unless Margus amends it.
+- Milestone 0 done (2026-11-10).
 
 ## Next
-- Step 0.2: git init, first commit, public GitHub repo `ste-php-y`, push.
+- Answer the milestone 0 questions, then step 1.1: design the schema (tables, columns, types, foreign keys) on paper before writing migrations.
 
 ## Areas covered
 - [ ] Project structure, `.env` and config, Artisan

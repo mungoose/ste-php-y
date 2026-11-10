@@ -88,8 +88,7 @@ Ask me 2–3 questions I could get in a technical conversation with the team abo
 
 ## Environment
 
-The Laravel installer generated its own `CLAUDE.md`/`AGENTS.md` telling agents to install PHP on the host and install Laravel Boost. They were deliberately not kept; if either file reappears (e.g. after `boost:install`), this section wins:
-- PHP 8.5 and Composer run only inside Laravel Sail (Docker), by choice. Never install PHP or Composer on the host or run `php` directly.
-- Laravel Boost is not installed, so there are no Boost MCP tools. Don't suggest installing it.
-- Every command goes through Sail: `./vendor/bin/sail artisan …`, `sail composer …`, `sail artisan test`, `sail pint`, `sail tinker`.
+- The app and MySQL run in Laravel Sail (Docker via OrbStack). PHP 8.5 and Composer are also installed on the Mac (Homebrew) for Composer and editor tooling.
+- Run `artisan`, tests and Tinker through Sail (`sail artisan …`, `sail artisan test`, `sail tinker`): `.env` has `DB_HOST=mysql`, which only resolves inside Docker. `composer` can run on the host.
+- Laravel Boost is not installed, so there are no Boost MCP tools. Don't suggest installing it. The installer's generated `CLAUDE.md`/`AGENTS.md` were deliberately dropped; if they reappear, this file wins.
 - Formatting: Laravel Pint is installed. In review, `sail pint --test` should pass.
