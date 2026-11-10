@@ -31,6 +31,7 @@
 
 ## Struggled with
 - OrbStack via Homebrew only installs the app; the docker CLI appears after first launch.
+- Milestone 0 questions: thought Sail mirrors production (it's a dev image, not prod); thought PHP minor versions don't break things and that compose.yaml sets the CI/prod PHP version (it's dev only; `composer.json` `require.php` / `config.platform.php`, CI and the prod image do). APP_KEY answer was mostly good; missed encrypted data loss and `APP_PREVIOUS_KEYS`.
 - `sail` is `./vendor/bin/sail` (project-local, like node_modules/.bin), and `artisan` needs PHP, so it only runs via `sail artisan`.
 
 ## Later
